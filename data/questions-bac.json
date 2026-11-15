@@ -1,0 +1,223 @@
+[
+  {
+    "id": 1,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Analyse - Limites et Continuité (Théorème des Gendarmes)",
+    "difficulty": "difficile",
+    "stem": "Soit la fonction f définie sur ]0, +∞[ par f(x) = x² · sin(1/x). Quelle est la limite de f(x) lorsque x tend vers 0 par valeurs positives, et quelle est la justification mathématique rigoureuse exigée au Baccalauréat guinéen ?",
+    "options": {
+      "A": "La limite n'existe pas car sin(1/x) oscille indéfiniment entre -1 et 1",
+      "B": "La limite est égale à 1 par application de la limite usuelle lim (sin t)/t quand t tend vers 0",
+      "C": "lim f(x) = 0 car pour tout x > 0, |sin(1/x)| ≤ 1 d'où -x² ≤ f(x) ≤ x² ; or lim (-x²) = lim (x²) = 0, donc d'après le théorème d'encadrement (gendarmes), lim f(x) = 0",
+      "D": "La limite est égale à +∞ car 1/x tend vers +∞ quand x tend vers 0+"
+    },
+    "correct_answer": "C",
+    "rationale": {
+      "correct": "Le théorème des gendarmes est incontournable au Baccalauréat SM guinéen. Comme la fonction sinus est bornée par -1 et 1 (|sin(u)| ≤ 1 pour tout u réel), multiplier par x² (positif) encadre la fonction entre -x² et x², qui tendent tous deux vers 0.",
+      "A": "Incorrect : Bien que sin(1/x) oscille, le facteur x² compresse l'oscillation vers 0.",
+      "B": "Incorrect : Confusion avec la limite usuelle en 0 de (sin x)/x = 1.",
+      "C": "Correct : Démarche et rédaction parfaites garantissant la totalité des points au barème officiel.",
+      "D": "Incorrect : Raisonnement faux ignorant le produit par x² qui domine."
+    },
+    "conseil_bac": "Toujours mentionner explicitement le nom du théorème : « D'après le théorème d'encadrement (ou théorème des gendarmes) »."
+  },
+  {
+    "id": 2,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Nombres Complexes - Forme Exponentielle et Géométrie",
+    "stem": "Soit le nombre complexe z = 1 + i√3. Quelle est sa forme exponentielle exacte et que représente la transformation géométrique du plan complexe associée à la multiplication par z ?",
+    "options": {
+      "A": "z = 2 · e^(iπ/6) et correspond à une rotation d'angle π/6",
+      "B": "z = 2 · e^(iπ/3) et correspond à la composée d'une homothétie de rapport 2 et d'une rotation d'angle π/3 de centre O",
+      "C": "z = 4 · e^(iπ/3) et correspond à une translation de vecteur (1, √3)",
+      "D": "z = e^(iπ/3) sans changement de module"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Module : |z| = √(1² + (√3)²) = √(1+3) = 2. Argument : cos θ = 1/2 et sin θ = √3/2, d'où θ = π/3 [2π]. Donc z = 2 · e^(iπ/3). Multiplier par z revient géométriquement à dilater les distances par le rapport 2 et tourner d'un angle π/3.",
+      "A": "Incorrect : cos(π/6) = √3/2, ce qui donnerait √3 + i.",
+      "B": "Correct : Résultat et interprétation géométrique d'homothétie-rotation rigoureusement conformes.",
+      "C": "Incorrect : Le module est 2, pas 4. Une multiplication n'est pas une translation.",
+      "D": "Incorrect : Le module 2 a été omis."
+    },
+    "conseil_bac": "Au Bac SM, ne pas oublier de préciser que l'argument est défini modulo 2π."
+  },
+  {
+    "id": 3,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Physique",
+    "topic": "Mécanique Newtonienne - Mouvement d'un Projectile dans le Champ de Pesanteur",
+    "stem": "Un projectile est lancé depuis le sol avec une vitesse initiale V0 faisant un angle α avec l'horizontale dans le champ de pesanteur uniforme g (frottements de l'air négligés). Quelle est l'expression de la portée maximale Xp (distance horizontale retombée au sol) ?",
+    "options": {
+      "A": "Xp = (V0² · sin(2α)) / g",
+      "B": "Xp = (V0 · cos α) / (2g)",
+      "C": "Xp = (V0² · sin² α) / (2g)",
+      "D": "Xp = (2 · V0 · sin α) / g"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "Équations horaires : x(t) = (V0 cos α)t et y(t) = -1/2 g t² + (V0 sin α)t. Au sol (y=0 pour t>0), t = (2 V0 sin α)/g. En injectant dans x(t), Xp = (2 V0² sin α cos α)/g = (V0² sin(2α))/g. La portée est maximale pour α = 45°.",
+      "A": "Correct : Formule classique de la portée au programme du Bac SM et SE.",
+      "B": "Incorrect : Dimensionnellement faux.",
+      "C": "Incorrect : Ceci correspond à la flèche (hauteur maximale H), pas à la portée horizontale.",
+      "D": "Incorrect : Ceci est le temps de vol (durée avant impact), pas la distance x."
+    },
+    "conseil_bac": "Ne parachutez jamais la formule finale ! Les correcteurs du Bac guinéen exigent l'intégration successive des équations différentielles à partir de la 2ème loi de Newton (F = ma)."
+  },
+  {
+    "id": 4,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Biologie (SVT)",
+    "topic": "Génétique Formelle - Monohybridisme et Lois de Mendel",
+    "stem": "Chez une espèce végétale, on croise une lignée pure à fleurs rouges avec une lignée pure à fleurs blanches. En première génération F1, 100% des individus ont des fleurs roses. En croisant les individus F1 entre eux, quelle proportion phénotypique théorique obtient-on en F2 ?",
+    "options": {
+      "A": "75% fleurs rouges et 25% fleurs blanches (3/4 ; 1/4)",
+      "B": "100% fleurs roses comme en F1",
+      "C": "25% fleurs rouges, 50% fleurs roses et 25% fleurs blanches (1/4 ; 1/2 ; 1/4) car il s'agit d'une codominance (ou dominance incomplète)",
+      "D": "50% fleurs rouges et 50% fleurs blanches"
+    },
+    "correct_answer": "C",
+    "rationale": {
+      "correct": "L'apparition du phénotype intermédiaire [rose] en F1 prouve qu'aucun allèle n'est dominant sur l'autre (codominance/dominance incomplète). L'échiquier de croisement F1 x F1 donne génotypiquement 1/4 R//R (rouge), 2/4 R//B (rose) et 1/4 B//B (blanc).",
+      "A": "Incorrect : Ce ratio 3/4 ; 1/4 ne s'observe qu'en cas de dominance absolue d'un allèle.",
+      "B": "Incorrect : La ségrégation indépendante des allèles en F2 réexprime les phénotypes parentaux.",
+      "C": "Correct : Justification génétique parfaite conforme aux exigences du Bac SE.",
+      "D": "Incorrect : Ceci résulterait d'un test-cross (croisement en retour), pas d'un croisement F1 x F1."
+    },
+    "conseil_bac": "Au Baccalauréat, présentez impérativement : Définition des allèles, Génotype des parents, Gamètes produits, et Échiquier de croisement complet."
+  },
+  {
+    "id": 5,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Chimie",
+    "topic": "Chimie Organique - Estérification et Hydrolyse",
+    "stem": "On fait réagir de l'acide éthanoïque (acide acétique) avec du propan-2-ol en présence d'un catalyseur acide (H2SO4) à chaud. Quels sont le nom du produit organique obtenu et les caractéristiques fondamentales de cette réaction ?",
+    "options": {
+      "A": "Propanoate d'éthyle ; réaction totale, rapide et exothermique",
+      "B": "Éthanoate de 1-méthyléthyle (ou éthanoate d'isopropyle) ; réaction lente, réversible (limitée par l'hydrolyse de l'ester) et athermique",
+      "C": "Acétone ; réaction d'oxydation ménagée complète",
+      "D": "Éthanoate de propyle ; réaction instantanée et explosive"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Acide carboxylique + Alcool ⇌ Ester + Eau. Avec un alcool secondaire comme le propan-2-ol, le rendement à l'équilibre est d'environ 60%. L'estérification est universellement lente, limitée et athermique.",
+      "A": "Incorrect : Inversion du squelette acide/alcool et fausses propriétés thermodynamiques.",
+      "B": "Correct : Nomenclature IUPAC exacte et définition des 3 propriétés cardinales de l'estérification au Bac guinéen.",
+      "C": "Incorrect : Une estérification ne produit pas de cétone.",
+      "D": "Incorrect : Le propan-2-ol possède la ramification sur le carbone 2 (isopropyle)."
+    },
+    "conseil_bac": "Mémorisez par cœur les 3 adjectifs de l'estérification : LENTE, LIMITÉE (ou réversible), et ATHERMIQUE."
+  },
+  {
+    "id": 6,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Philosophie",
+    "topic": "La Conscience et l'Inconscient - Freud vs Descartes",
+    "stem": "Sujet type Baccalauréat Guinéen : « L'inconscient ruine-t-il la liberté humaine ? » Quelle thèse philosophique majeure s'oppose radicalement à la théorie psychanalytique freudienne sur ce sujet ?",
+    "options": {
+      "A": "La thèse de Karl Marx affirmant que ce sont les conditions matérielles d'existence qui déterminent la conscience",
+      "B": "La critique existentialiste de Jean-Paul Sartre, affirmant que l'inconscient freudien est un alibi de 'mauvaise foi' permettant à l'homme de fuir sa responsabilité absolue et sa liberté",
+      "C": "La doctrine empiriste de John Locke selon laquelle l'esprit est une table rase",
+      "D": "L'allégorie de la caverne de Platon qui démontre que l'homme est prisonnier de ses sens"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Pour Sartre, l'homme est 'condamné à être libre'. Postuler un inconscient psychique autonome qui agirait à notre insu (comme le Ça freudien) relève de la 'mauvaise foi' : l'individu invente un déterminisme interne pour refuser d'assumer ses choix moraux.",
+      "A": "Incorrect : Marx critique l'idéalisme mais ne traite pas directement de la liberté psychique sartrienne.",
+      "B": "Correct : Antithèse philosophique de premier plan hautement valorisée dans les dissertations du Bac SS.",
+      "C": "Incorrect : Locke traite de l'origine des idées, pas de la déconstruction morale de l'inconscient.",
+      "D": "Incorrect : Platon oppose le monde sensible au monde intelligible."
+    },
+    "conseil_bac": "Dans une dissertation de Philo au Bac guinéen, ne prenez jamais un parti unilatéral : Thèse (Freud), Antithèse (Sartre/Alain), et Synthèse critique."
+  },
+  {
+    "id": 7,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Histoire",
+    "topic": "La Décolonisation et l'Indépendance de la Guinée (Le 'Non' du 28 Septembre 1958)",
+    "stem": "Le 28 septembre 1958, le peuple de Guinée, sous la conduite d'Ahmed Sékou Touré, vote massivement « NON » au référendum constitutionnel proposé par le Général de Gaulle. Quelle conséquence immédiate et historique ce vote a-t-il entraîné ?",
+    "options": {
+      "A": "La Guinée a intégré la Communauté Franco-Africaine avec un statut d'autonomie interne",
+      "B": "La proclamation unilatérale de l'indépendance de la République de Guinée le 2 octobre 1958, marquée par la rupture brutale des relations diplomatiques et le retrait total des administrateurs et matériels français",
+      "C": "L'annexion immédiate du territoire guinéen par la fédération du Mali",
+      "D": "La signature immédiate des accords de défense avec la Grande-Bretagne"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "La Guinée fut la seule colonie d'Afrique subsaharienne française à rejeter la Communauté gaulliste (« Nous préférons la liberté dans la pauvreté à l'opulence dans la servitude »). L'indépendance est proclamée le 2 octobre 1958, suivie de représailles économiques et administratives immédiates de la métropole.",
+      "A": "Incorrect : C'est le vote « OUI » des autres colonies qui a créé la Communauté.",
+      "B": "Correct : Fait fondateur de la souveraineté guinéenne au cœur du programme d'Histoire du Baccalauréat.",
+      "C": "Incorrect : La fédération du Mali (Sénégal/Soudan français) s'est formée séparément en 1959.",
+      "D": "Incorrect : La Guinée s'est tournée initialement vers le Ghana de Kwame Nkrumah (Union Guinée-Ghana).",
+    },
+    "conseil_bac": "Citez toujours la date exacte : 28 Septembre 1958 pour le référendum, et 2 Octobre 1958 pour la fête nationale d'indépendance."
+  },
+  {
+    "id": 8,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Économie",
+    "topic": "Commerce International et Échange Inégal",
+    "stem": "Dans le commerce mondial des matières premières, la Guinée exporte principalement de la bauxite brute et importe des produits manufacturés finis. Quel concept économique décrit la baisse tendancielle du pouvoir d'achat des exportations des pays en développement face aux importations industrielles ?",
+    "options": {
+      "A": "La loi des rendements décroissants de David Ricardo",
+      "B": "La détérioration des termes de l'échange (thèse de Singer-Prebisch)",
+      "C": "L'avantage absolu selon Adam Smith",
+      "D": "La parité de pouvoir d'achat de Gustav Cassel"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "La détérioration des termes de l'échange montre que le prix des matières premières brutes (non transformées localement) tend à diminuer relativement aux biens manufacturés à haute valeur ajoutée, maintenant les pays exportateurs primaires dans un déficit structurel.",
+      "A": "Incorrect : Les rendements décroissants concernent la productivité marginale des facteurs de production.",
+      "B": "Correct : Théorie économique fondamentale expliquant la nécessité actuelle de transformation locale des minerais en Guinée.",
+      "C": "Incorrect : L'avantage absolu fonde le libre-échange smithien.",
+      "D": "Incorrect : La PPA compare les taux de change par rapport à un panier de biens."
+    },
+    "conseil_bac": "Reliez toujours les théories économiques du Bac aux réalités locales guinéennes (Simandou, bauxite de Boké, raffineries d'alumine)."
+  },
+  {
+    "id": 9,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Mathématiques",
+    "topic": "Géométrie Fondamentale - Théorème de Thalès et Trigonométrie",
+    "stem": "Soit un triangle ABC rectangle en A tel que AB = 6 cm et BC = 10 cm. Quelle est la longueur du côté AC et que vaut le cosinus de l'angle ABC ?",
+    "options": {
+      "A": "AC = 8 cm et cos(ABC) = 0,6",
+      "B": "AC = 4 cm et cos(ABC) = 0,8",
+      "C": "AC = 16 cm et cos(ABC) = 1,2",
+      "D": "AC = 8 cm et cos(ABC) = 0,8"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "D'après le théorème de Pythagore dans le triangle ABC rectangle en A : BC² = AB² + AC² => AC² = BC² - AB² = 10² - 6² = 100 - 36 = 64 => AC = √64 = 8 cm. Par définition trigonométrique : cos(ABC) = Côté adjacent / Hypoténuse = AB / BC = 6 / 10 = 0,6.",
+      "A": "Correct : Application rigoureuse de Pythagore et de la trigonométrie du programme du BEPC.",
+      "B": "Incorrect : 10² - 6² ne donne pas 16.",
+      "C": "Incorrect : Le cosinus d'un angle aigu ne peut jamais dépasser 1.",
+      "D": "Incorrect : 0,8 correspond au sinus de l'angle (AC/BC = 8/10), pas au cosinus."
+    },
+    "conseil_bac": "Au BEPC, commencez toujours par écrire l'égalité théorique littérale avant de remplacer par les valeurs numériques."
+  },
+  {
+    "id": 10,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Français",
+    "topic": "Grammaire & Conjugaison - Concordance des Temps et Discours Rapporté",
+    "stem": "Dans l'épreuve de dictée-questions du BEPC : On passe de la phrase directe : « Le maître déclara : 'Tous les candidats réussiront s'ils travaillent avec discipline' » au discours indirect introduit par un verbe au passé. Quelle est la transposition grammaticale correcte ?",
+    "options": {
+      "A": "Le maître déclara que tous les candidats réussiront s'ils travaillaient avec discipline",
+      "B": "Le maître déclara que tous les candidats réussiraient s'ils travaillaient avec discipline",
+      "C": "Le maître déclara que tous les candidats auront réussi s'ils travaillent",
+      "D": "Le maître déclara que tous les candidats réussissent s'ils ont travaillé"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Règle de concordance des temps après un verbe introducteur au passé (déclara) : le futur simple ('réussiront') devient le conditionnel présent ('réussiraient'), et le présent de l'indicatif ('travaillent') devient l'imparfait ('travaillaient').",
+      "A": "Incorrect : Maintien fautif du futur après un verbe passé.",
+      "B": "Correct : Concordance impeccable (Futur -> Conditionnel, Présent -> Imparfait).",
+      "C": "Incorrect : Emploi non justifié du futur antérieur.",
+      "D": "Incorrect : Rupture temporelle illogique."
+    },
+    "conseil_bac": "Attention à l'orthographe des terminaisons : conditionnel en -aient (ils réussiraient) et imparfait en -aient (ils travaillaient)."
+  }
+]
