@@ -1,0 +1,493 @@
+import json
+
+data = [
+  {
+    "id": 1,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Analyse - Limites et Continuité (Théorème des Gendarmes)",
+    "stem": "Soit la fonction f définie sur ]0, +∞[ par f(x) = x² · sin(1/x). Quelle est la limite de f(x) quand x tend vers 0+ et quelle est la justification mathématique officielle exigée au Baccalauréat SM ?",
+    "options": {
+      "A": "La limite n'existe pas car sin(1/x) oscille indéfiniment entre -1 et 1",
+      "B": "lim f(x) = 1 par application de la limite usuelle de (sin t)/t en 0",
+      "C": "lim f(x) = 0 car pour tout x > 0, |sin(1/x)| ≤ 1 d'où -x² ≤ f(x) ≤ x² ; or lim (-x²) = lim (x²) = 0, donc par le théorème d'encadrement (gendarmes), lim f(x) = 0",
+      "D": "lim f(x) = +∞ car 1/x tend vers +∞ en 0+"
+    },
+    "correct_answer": "C",
+    "rationale": {
+      "correct": "Comme la fonction sinus est bornée par [-1, 1], multiplier par x² > 0 encadre f(x) entre -x² et x² qui tendent tous deux vers 0 en 0. Le théorème d'encadrement impose une limite nulle.",
+      "A": "Incorrect : Le facteur x² compresse l'oscillation et force la convergence vers 0.",
+      "B": "Incorrect : Formule non applicable ici.",
+      "C": "Correct : Démarche et rédaction officielles complètes du Bac SM guinéen.",
+      "D": "Incorrect : Raisonnement faux."
+    },
+    "conseil_bac": "Mentionnez toujours explicitement le nom du théorème : « D'après le théorème d'encadrement »."
+  },
+  {
+    "id": 2,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Nombres Complexes - Forme Exponentielle et Puissances",
+    "stem": "Soit le nombre complexe z = 1 + i√3. Quelle est sa forme exponentielle exacte et la valeur exacte de z^6 ?",
+    "options": {
+      "A": "z = 2·e^(iπ/6) et z^6 = 64·i",
+      "B": "z = 2·e^(iπ/3) et z^6 = 2^6 · e^(i·2π) = 64 (nombre réel strictement positif)",
+      "C": "z = 4·e^(iπ/3) et z^6 = -64",
+      "D": "z = e^(iπ/3) et z^6 = 1"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Module |z| = √(1 + 3) = 2. Argument : cos θ = 1/2, sin θ = √3/2 => θ = π/3. Donc z = 2·e^(iπ/3). Par la formule de Moivre : z^6 = 2^6 · e^(i·6π/3) = 64 · e^(i·2π) = 64.",
+      "A": "Incorrect : L'angle est π/3 et non π/6.",
+      "B": "Correct : Calcul de module et formule de Moivre appliqués à la perfection.",
+      "C": "Incorrect : Le module est 2 et non 4.",
+      "D": "Incorrect : Le module 2 a été oublié."
+    },
+    "conseil_bac": "z^n est réel positif lorsque nθ est un multiple entier pair de π."
+  },
+  {
+    "id": 3,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Calcul Intégral - Intégration par Parties (IPP)",
+    "stem": "Quelle est la valeur exacte de l'intégrale I = ∫[1 à e] x · ln(x) dx ?",
+    "options": {
+      "A": "I = (e² + 1) / 4",
+      "B": "I = e² - 1",
+      "C": "I = (e² - 1) / 2",
+      "D": "I = e² / 2"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "Posons u(x) = ln(x) => u'(x) = 1/x et v'(x) = x => v(x) = x²/2. IPP : I = [x²ln(x)/2][1 à e] - ∫[1 à e] (x/2) dx = e²/2 - [x²/4][1 à e] = e²/2 - (e²/4 - 1/4) = (e² + 1) / 4.",
+      "A": "Correct : Démonstration intégrale rigoureuse du Bac SM.",
+      "B": "Incorrect : Oubli de l'intégrale résiduelle.",
+      "C": "Incorrect : Erreur de primitive.",
+      "D": "Incorrect : Oubli de la borne inférieure 1."
+    },
+    "conseil_bac": "Règle ALPES : dérivez la fonction Logarithme avant la fonction Polynôme."
+  },
+  {
+    "id": 4,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Mathématiques",
+    "topic": "Équations Différentielles du 2nd Ordre Linéaires",
+    "stem": "Quelle est la solution générale sur ℝ de y'' + 9y = 0 vérifiant les conditions initiales y(0) = 2 et y'(0) = 3 ?",
+    "options": {
+      "A": "y(x) = 2·e^(3x) + 3·e^(-3x)",
+      "B": "y(x) = 2·cos(3x) + sin(3x)",
+      "C": "y(x) = 2·cos(9x) + 3·sin(9x)",
+      "D": "y(x) = cos(3x) + 2·sin(3x)"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "L'équation caractéristique r² + 9 = 0 admet r = ±3i. Forme générale : y(x) = A cos(3x) + B sin(3x). Avec y(0) = A = 2 et y'(0) = 3B = 3 => B = 1. Solution : y(x) = 2 cos(3x) + sin(3x).",
+      "A": "Incorrect : Forme exponentielle réservée au cas r² - 9 = 0.",
+      "B": "Correct : Détermination exacte des constantes par conditions initiales.",
+      "C": "Incorrect : La pulsation est 3 (√9) et non 9.",
+      "D": "Incorrect : Constantes inversées."
+    },
+    "conseil_bac": "Dérivez toujours votre solution finale pour vérifier que y'(0) donne bien la valeur initiale."
+  },
+  {
+    "id": 5,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Physique",
+    "topic": "Mécanique - Mouvement d'un Projectile dans le Champ de Pesanteur",
+    "stem": "Un projectile est lancé à la vitesse V0 sous un angle α par rapport au sol horizontal (champ g). Quelle est l'expression de la hauteur maximale atteinte (Flèche H) ?",
+    "options": {
+      "A": "H = (V0² · sin² α) / (2g)",
+      "B": "H = (V0² · sin(2α)) / g",
+      "C": "H = (V0 · cos α) / g",
+      "D": "H = V0² / (2g)"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "Au sommet de la trajectoire, la composante verticale s'annule : Vy = 0 => t = (V0 sin α)/g. En injectant t dans l'équation horaire y(t), on trouve H = (V0² sin² α) / (2g).",
+      "A": "Correct : Démonstration newtonienne classique du Baccalauréat.",
+      "B": "Incorrect : Ceci est la portée horizontale au sol Xp.",
+      "C": "Incorrect : Non homogène à une hauteur.",
+      "D": "Incorrect : Vrai uniquement si le tir est vertical à 90°."
+    },
+    "conseil_bac": "Ne confondez pas Flèche (hauteur Y) et Portée (distance horizontale X)."
+  },
+  {
+    "id": 6,
+    "filiere": "Sciences Mathématiques (SM)",
+    "matiere": "Physique",
+    "topic": "Électricité - Résonance d'Intensité dans un Circuit RLC Série",
+    "stem": "Dans un circuit RLC série soumis à une tension sinusoïdale de pulsation ω, quelle est la condition pour atteindre la résonance d'intensité ?",
+    "options": {
+      "A": "LCω² = 1 (Lω = 1/Cω), l'impédance est minimale (Z = R) et l'intensité est maximale",
+      "B": "R = L / C et le déphasage est de 90°",
+      "C": "Lω = 0 et le courant s'annule",
+      "D": "Z = √(R² + (Lω)²)"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "À la résonance électrique, la réactance totale s'annule (Lω - 1/Cω = 0 => LCω² = 1). L'impédance Z = R est minimale, le courant est maximal et en phase avec la tension (cos φ = 1).",
+      "A": "Correct : Définition physique et mathématique exacte.",
+      "B": "Incorrect : Condition fausse.",
+      "C": "Incorrect : Absurde en courant alternatif.",
+      "D": "Incorrect : Effet capacitif ignoré."
+    },
+    "conseil_bac": "À la résonance, la puissance active dissipée par effet Joule est maximale."
+  },
+  {
+    "id": 7,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Biologie (SVT)",
+    "topic": "Génétique Formelle - Monohybridisme et Codominance",
+    "stem": "Chez une plante, le croisement de deux lignées pures (fleurs rouges et blanches) donne 100% de fleurs roses en F1. Quel est le résultat du croisement F1 × F1 en F2 ?",
+    "options": {
+      "A": "75% fleurs rouges et 25% fleurs blanches",
+      "B": "25% fleurs rouges, 50% fleurs roses et 25% fleurs blanches (1/4 [R], 1/2 [rose], 1/4 [B])",
+      "C": "100% fleurs roses",
+      "D": "50% fleurs rouges et 50% fleurs blanches"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Il s'agit d'une dominance incomplète (codominance). En F2, la ségrégation des allèles donne la proportion 1:2:1 (1/4 R//R rouge, 1/2 R//B rose, 1/4 B//B blanc).",
+      "A": "Incorrect : Ratio d'une dominance complète.",
+      "B": "Correct : Loi de ségrégation mendélienne avec codominance.",
+      "C": "Incorrect : Vrai uniquement en F1.",
+      "D": "Incorrect : Résultat d'un test-cross."
+    },
+    "conseil_bac": "Dressez toujours l'échiquier de croisement avec les gamètes des deux parents."
+  },
+  {
+    "id": 8,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Biologie (SVT)",
+    "topic": "Immunologie - Rôle des Lymphocytes T CD4",
+    "stem": "Quel est le rôle prépondérant des Lymphocytes T CD4 dans la réponse immunitaire adaptative ?",
+    "options": {
+      "A": "Produire directement des anticorps circulants",
+      "B": "Phagocyter les bactéries par des pseudopodes",
+      "C": "Sécréter des interleukines pour stimuler et faire proliférer les Lymphocytes B et les Lymphocytes T CD8",
+      "D": "Détruire les cellules infectées par contact direct"
+    },
+    "correct_answer": "C",
+    "rationale": {
+      "correct": "Les LT4 sont les chefs d'orchestre de l'immunité adaptative. Par leurs sécrétions de cytokines (notamment IL-2), ils activent les LB producteurs d'anticorps et les LT8 cytotoxiques.",
+      "A": "Incorrect : Les anticorps sont synthétisés par les plasmocytes.",
+      "B": "Incorrect : Rôle des macrophages.",
+      "C": "Correct : Rôle central d'auxiliaire de la réponse immunitaire.",
+      "D": "Incorrect : Rôle des LT8 cytotoxiques."
+    },
+    "conseil_bac": "Liez cette question à la destruction des LT4 par le virus du VIH dans le SIDA."
+  },
+  {
+    "id": 9,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Chimie",
+    "topic": "Chimie Organique - Estérification et Hydrolyse",
+    "stem": "On fait réagir de l'acide éthanoïque avec de l'éthanol à reflux en présence d'acide sulfurique. Quel ester obtient-on et quel est le rendement limite avec un alcool primaire ?",
+    "options": {
+      "A": "Éthanoate de méthyle avec 100% de rendement",
+      "B": "Éthanoate d'éthyle (CH3COOCH2CH3) avec un rendement limite d'environ 67% (2/3)",
+      "C": "Propanoate d'éthyle avec 10% de rendement",
+      "D": "Méthanoate d'éthyle"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Acide carboxylique + Alcool primaire ⇌ Ester + Eau. La réaction est lente, réversible et athermique, atteignant un équilibre à environ 67% d'ester formé.",
+      "A": "Incorrect : L'estérification est réversible, jamais totale.",
+      "B": "Correct : Nom IUPAC et rendement d'équilibre théorique.",
+      "C": "Incorrect : Erreur de chaîne carbonée.",
+      "D": "Incorrect : Mauvais squelette acide."
+    },
+    "conseil_bac": "Mémorisez les 3 mots-clés de l'estérification : Lente, Limitée, Athermique."
+  },
+  {
+    "id": 10,
+    "filiere": "Sciences Expérimentales (SE)",
+    "matiere": "Chimie",
+    "topic": "Acides et Bases - Solution Tampon et Demi-Équivalence",
+    "stem": "Lors du dosage d'un acide faible par une base forte, que vaut le pH à la demi-équivalence (V = VE / 2) ?",
+    "options": {
+      "A": "pH = 7,0",
+      "B": "pH = pKa du couple acide/base et la solution constitue un mélange tampon optimal",
+      "C": "pH = 14",
+      "D": "pH = 0"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "À la demi-équivalence, [Acide] = [Base conjuguée]. Par la formule d'Henderson-Hasselbalch, pH = pKa + log(1) = pKa. Le pouvoir tampon y est maximal.",
+      "A": "Incorrect : 7 est le pH d'équivalence pour un acide fort dosé par une base forte.",
+      "B": "Correct : Propriété fondamentale de la demi-équivalence.",
+      "C": "Incorrect : Absurde.",
+      "D": "Incorrect : Absurde."
+    },
+    "conseil_bac": "C'est la méthode graphique officielle pour déterminer le pKa sur une courbe de titrage."
+  },
+  {
+    "id": 11,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Philosophie",
+    "topic": "La Conscience et l'Inconscient - Freud vs Sartre",
+    "stem": "Quelle critique philosophique majeure Jean-Paul Sartre oppose-t-il à la théorie de l'inconscient de Sigmund Freud ?",
+    "options": {
+      "A": "Sartre affirme que l'inconscient est une vérité biologique absolue",
+      "B": "Sartre dénonce l'inconscient comme une « mauvaise foi », un alibi inventé par l'homme pour fuir sa liberté et sa responsabilité morale absolue",
+      "C": "Sartre affirme que l'inconscient n'existe que chez les animaux",
+      "D": "Sartre abandonne la philosophie pour la psychologie"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Pour Sartre, l'homme est totalement libre et responsable de ses actes. Invoquer un inconscient qui agirait contre notre volonté relève de la mauvaise foi pour esquiver la culpabilité.",
+      "A": "Incorrect : Thèse contraire à l'existentialisme.",
+      "B": "Correct : Thèse philosophique fondamentale du Bac SS.",
+      "C": "Incorrect : Absurde.",
+      "D": "Incorrect : Sartre est un philosophe existentialiste majeur."
+    },
+    "conseil_bac": "Opposez toujours le déterminisme psychique freudien à la liberté existentielle sartrienne."
+  },
+  {
+    "id": 12,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Philosophie",
+    "topic": "L'État et la Souveraineté - Le Contrat Social de Rousseau",
+    "stem": "Dans « Du Contrat Social », comment Rousseau définit-il la véritable liberté du citoyen dans l'État républicain ?",
+    "options": {
+      "A": "Le droit de faire tout ce qui plaît sans aucune loi",
+      "B": "L'obéissance à la loi qu'on s'est soi-même prescrite au sein de la volonté générale",
+      "C": "La soumission aveugle aux ordres du chef d'État",
+      "D": "Le refus de l'autorité de l'État"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Pour Rousseau, « l'obéissance à la loi qu'on s'est prescrite est liberté ». Par la volonté générale, le peuple est à la fois auteur et sujet de la loi.",
+      "A": "Incorrect : Ceci est la licence ou l'anarchie.",
+      "B": "Correct : Définition rousseauiste canonique de la liberté civile.",
+      "C": "Incorrect : Thèse absolutiste de Hobbes.",
+      "D": "Incorrect : Contraire au pacte républicain."
+    },
+    "conseil_bac": "Distinguez la liberté naturelle précaire de la liberté civile garantie par la loi."
+  },
+  {
+    "id": 13,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Histoire",
+    "topic": "L'Indépendance de la Guinée - Le Référendum du 28 Septembre 1958",
+    "stem": "Quelle phrase historique a été prononcée par Ahmed Sékou Touré devant le Général de Gaulle à Conakry le 25 août 1958 ?",
+    "options": {
+      "A": "« L'Afrique aux Africains »",
+      "B": "« Nous préférons la liberté dans la pauvreté à l'opulence dans la servitude »",
+      "C": "« Nous voulons l'autonomie dans la Communauté »",
+      "D": "« La Guinée restera française pour l'éternité »"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Cette déclaration historique a conduit au vote du NON massif au référendum du 28 septembre 1958 et à l'indépendance de la République de Guinée le 2 octobre 1958.",
+      "A": "Incorrect : Slogan panafricain général.",
+      "B": "Correct : Citation historique exacte fondatrice de la Guinée indépendante.",
+      "C": "Incorrect : Choix des autres territoires d'AOF.",
+      "D": "Incorrect : Faux."
+    },
+    "conseil_bac": "Citez toujours cette phrase entre guillemets dans vos dissertations d'histoire."
+  },
+  {
+    "id": 14,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Histoire",
+    "topic": "Résistance Anticoloniale - Almamy Samory Touré",
+    "stem": "Quelle stratégie militaire Almamy Samory Touré a-t-il employée face à l'armée coloniale française de 1882 à 1898 ?",
+    "options": {
+      "A": "La guerre navale",
+      "B": "La tactique de la terre brûlée, la guérilla mobile et le déplacement progressif de son empire vers l'Est",
+      "C": "L'alliance inconditionnelle avec les officiers français",
+      "D": "La capitulation immédiate sans combat"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Face à l'artillerie française, Samory évacuait les villages, brûlait les récoltes pour couper le ravitaillement ennemi et attaquait par des troupes montées rapides (les sofas).",
+      "A": "Incorrect : Empire continental intérieur.",
+      "B": "Correct : Analyse stratégique du programme officiel d'Histoire.",
+      "C": "Incorrect : Samory a résisté vaillamment pendant 16 ans.",
+      "D": "Incorrect : Faux."
+    },
+    "conseil_bac": "Analysez l'organisation de son armée divisée en ailes mobiles et ses forges artisanales."
+  },
+  {
+    "id": 15,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Économie",
+    "topic": "Commerce International - Détérioration des Termes de l'Échange",
+    "stem": "En économie, que désigne la « détérioration des termes de l'échange » pour un pays exportateur de matières premières brutes comme la Guinée ?",
+    "options": {
+      "A": "Une baisse du volume extrait de bauxite",
+      "B": "La baisse tendancielle du prix des matières premières brutes exportées par rapport aux prix des produits manufacturés importés",
+      "C": "La fermeture des frontières douanières",
+      "D": "La hausse des salaires miniers"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "La thèse de Singer-Prebisch montre que le pouvoir d'achat des exportations minières non transformées baisse face aux biens industriels, justifiant la transformation locale des minerais.",
+      "A": "Incorrect : Concerne les prix relatifs, pas le volume.",
+      "B": "Correct : Théorie économique essentielle du Bac SS.",
+      "C": "Incorrect : Hors sujet.",
+      "D": "Incorrect : Hors sujet."
+    },
+    "conseil_bac": "Liez cette théorie à la politique guinéenne de construction de raffineries d'alumine sur place."
+  },
+  {
+    "id": 16,
+    "filiere": "Sciences Sociales (SS)",
+    "matiere": "Géographie",
+    "topic": "Géographie de la Guinée - Les 4 Régions Naturelles",
+    "stem": "Pourquoi la République de Guinée est-elle surnommée le « Château d'eau de l'Afrique de l'Ouest » ?",
+    "options": {
+      "A": "Elle possède la plus grande usine de dessalement d'eau de mer d'Afrique",
+      "B": "Les grands fleuves d'Afrique de l'Ouest (Niger, Sénégal/Bafing, Gambie) prennent leur source dans ses massifs montagneux (Fouta-Djalon et Dorsale)",
+      "C": "Il n'y pleut jamais en Guinée",
+      "D": "Elle achète son eau à ses voisins"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Le relief élevé (Fouta-Djalon, Dorsale guinéenne) et la pluviométrie tropicale abondante font de la Guinée la source nourricière des plus grands fleuves ouest-africains.",
+      "A": "Incorrect : Faux.",
+      "B": "Correct : Définition géographique officielle.",
+      "C": "Incorrect : La Guinée a une forte pluviométrie.",
+      "D": "Incorrect : La Guinée alimente ses voisins en eau fluviale."
+    },
+    "conseil_bac": "Citez les 4 régions : Basse-Guinée, Moyenne-Guinée, Haute-Guinée et Guinée Forestière."
+  },
+  {
+    "id": 17,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Mathématiques",
+    "topic": "Algèbre - Identité Remarquable a² - b²",
+    "stem": "Quelle est la factorisation exacte de l'expression A = (2x - 3)² - (x + 1)² ?",
+    "options": {
+      "A": "A = (x - 4)(3x - 2)",
+      "B": "A = (3x - 2)(x + 2)",
+      "C": "A = 3x² - 14x + 8",
+      "D": "A = (2x - 3)(x + 1)"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "a² - b² = (a - b)(a + b). a - b = (2x - 3) - (x + 1) = x - 4. a + b = (2x - 3) + (x + 1) = 3x - 2. Donc A = (x - 4)(3x - 2).",
+      "A": "Correct : Factorisation algébrique exacte.",
+      "B": "Incorrect : Erreur de signe.",
+      "C": "Incorrect : Forme développée au lieu de factorisée.",
+      "D": "Incorrect : Faux."
+    },
+    "conseil_bac": "Attention au signe négatif : - (x + 1) = - x - 1."
+  },
+  {
+    "id": 18,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Mathématiques",
+    "topic": "Géométrie - Théorème de Pythagore et Trigonométrie",
+    "stem": "Dans un triangle ABC rectangle en A, AB = 6 cm et BC = 10 cm. Que valent le côté AC et cos(ABC) ?",
+    "options": {
+      "A": "AC = 8 cm et cos(ABC) = 0,6",
+      "B": "AC = 4 cm et cos(ABC) = 0,8",
+      "C": "AC = 16 cm et cos(ABC) = 1,2",
+      "D": "AC = 8 cm et cos(ABC) = 0,8"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "D'après Pythagore : AC² = BC² - AB² = 100 - 36 = 64 => AC = 8 cm. cos(ABC) = Côté adjacent / Hypoténuse = AB / BC = 6 / 10 = 0,6.",
+      "A": "Correct : Application exacte de Pythagore et de la trigonométrie.",
+      "B": "Incorrect : Calcul erroné.",
+      "C": "Incorrect : Un cosinus ne dépasse jamais 1.",
+      "D": "Incorrect : 0,8 est le sinus (AC/BC), pas le cosinus."
+    },
+    "conseil_bac": "Écrivez d'abord la formule littérale avant le calcul numérique."
+  },
+  {
+    "id": 19,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Mathématiques",
+    "topic": "Systèmes Linéaires à Deux Inconnues",
+    "stem": "Quel est le couple solution (x ; y) du système { 2x + y = 11 ; x - y = 1 } ?",
+    "options": {
+      "A": "x = 4 et y = 3",
+      "B": "x = 3 et y = 5",
+      "C": "x = 5 et y = 1",
+      "D": "x = 2 et y = 7"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "Par addition membre à membre : 3x = 12 => x = 4. En remplaçant x par 4 dans la 2ème équation : 4 - y = 1 => y = 3. S = {(4 ; 3)}.",
+      "A": "Correct : Résolution rapide par élimination.",
+      "B": "Incorrect : Ne vérifie pas la soustraction.",
+      "C": "Incorrect : Faux.",
+      "D": "Incorrect : Faux."
+    },
+    "conseil_bac": "Vérifiez toujours votre solution dans les deux équations de départ."
+  },
+  {
+    "id": 20,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Français",
+    "topic": "Grammaire - Discours Direct et Indirect",
+    "stem": "Quelle est la transposition correcte au discours indirect de : « Le professeur a dit : \"Vous réussirez si vous étudiez\" » ?",
+    "options": {
+      "A": "Le professeur a dit qu'ils réussiraient s'ils étudiaient",
+      "B": "Le professeur a dit que vous réussirez si vous étudiez",
+      "C": "Le professeur a dit qu'ils auront réussi",
+      "D": "Le professeur a dit qu'ils réussissent"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "Avec un verbe au passé (a dit), le futur devient conditionnel présent (réussiraient) et le présent devient imparfait (étudiaient).",
+      "A": "Correct : Concordance des temps respectée.",
+      "B": "Incorrect : Pronoms et temps non changés.",
+      "C": "Incorrect : Temps inadapté.",
+      "D": "Incorrect : Rupture temporelle."
+    },
+    "conseil_bac": "Terminaison en -aient pour le conditionnel et l'imparfait pluriel."
+  },
+  {
+    "id": 21,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Français",
+    "topic": "Orthographe - Accord du Participe Passé avec Avoir",
+    "stem": "Dans quelle phrase l'accord du participe passé est-il rigoureusement exact ?",
+    "options": {
+      "A": "Les épreuves que nous avons préparé étaient faciles",
+      "B": "Les épreuves que nous avons préparées étaient faciles",
+      "C": "Les épreuves que nous avons préparés étaient faciles",
+      "D": "Les épreuves que nous avons préparer étaient faciles"
+    },
+    "correct_answer": "B",
+    "rationale": {
+      "correct": "Le participe passé avec avoir s'accorde avec le COD s'il est placé AVANT le verbe. Le COD est « que » mis pour « les épreuves » (féminin pluriel). Accord en -ées.",
+      "A": "Incorrect : Oubli de l'accord.",
+      "B": "Correct : Règle grammaticale fondamentale du BEPC.",
+      "C": "Incorrect : Masculin pluriel erroné.",
+      "D": "Incorrect : Infinitif au lieu de participe passé."
+    },
+    "conseil_bac": "Repérez où est le COD : s'il est devant, accord obligatoire."
+  },
+  {
+    "id": 22,
+    "filiere": "Collège (10ème Année - BEPC)",
+    "matiere": "Sciences Physiques",
+    "topic": "Mécanique - Masse et Poids d'un Corps",
+    "stem": "Un objet a une masse de 70 kg sur Terre (g = 9,8 N/kg). Sur la Lune (g = 1,6 N/kg), quelle est sa masse et quel est son poids ?",
+    "options": {
+      "A": "Masse = 70 kg et Poids = 112 N",
+      "B": "Masse = 11,4 kg et Poids = 70 N",
+      "C": "Masse = 70 kg et Poids = 686 N",
+      "D": "Masse = 0 kg"
+    },
+    "correct_answer": "A",
+    "rationale": {
+      "correct": "La masse est invariable (70 kg partout dans l'univers). Le poids dépend de la gravité locale : P = m × g = 70 × 1,6 = 112 N.",
+      "A": "Correct : Distinction scientifique capitale masse/poids.",
+      "B": "Incorrect : Confusion masse et poids.",
+      "C": "Incorrect : 686 N est son poids sur Terre.",
+      "D": "Incorrect : La masse ne disparaît jamais."
+    },
+    "conseil_bac": "Retenez : la masse s'exprime en kg et le poids en Newtons (N)."
+  }
+]
+
+with open('/Users/moussatoure/Documents/antigravity/nifty-einstein/prepabac-guinee/data/questions-bac.json', 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+print('Fichier questions-bac.json écrit avec succès!')
